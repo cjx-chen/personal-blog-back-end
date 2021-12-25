@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.blog.dao.CategoryMapper">
+    <resultMap id="CategoryMap" type="com.example.blog.entity.Category">
+        <id column="category_id" property="categoryId"/>
+        <result column="category_name" property="categoryName"/>
+        <result column="isDeleted" property="isDeleted"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        category_id, category_name, isDeleted
+    </sql>
+
+    <select id="getAllCategories" resultMap="CategoryMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM category
+        WHERE isDeleted = 0
+    </select>
+
+    <select id="getCategoryById" resultMap="CategoryMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM category
+        WHERE isDeleted = 0 AND category_id=#{categoryId}
+    </select>
+
+    <insert id="addCategory" parameterType="String">
+        INSERT INTO category SET
+            category_name=#{categoryName}
+    </insert>
+
+    <update id="updateCategory" parameterType="Category">
+        UPDATE category
+        SET category_name=#{categoryName}
+        WHERE category_id=#{categoryId}
+    </update>
+
+    <delete id="deleteCategory" parameterType="int">
+        Update category
+        SET isDeleted = 1
+        WHERE category_id=#{categoryId}
+    </delete>
+
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.blog.dao.ArticleCategoryMapper">
+    <resultMap id="ArticleCategoryMap" type="com.example.blog.entity.ArticleCategory">
+        <id column="id" property="id"/>
+        <result column="a_id" property="aId"/>
+        <result column="c_id" property="cId"/>
+        <result column="isDeleted" property="isDeleted"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, a_id, c_id, isDeleted
+    </sql>
+
+    <select id="selectByAId" parameterType="int" resultMap="ArticleCategoryMap">
+        select
+        <include refid="Base_Column_List"></include>
+        FROM article_category
+        WHERE a_id=#{aId} and isDeleted = 0
+    </select>
+
+    <select id="selectByCId" parameterType="int" resultMap="ArticleCategoryMap">
+        SELECT 
+        <include refid="Base_Column_List"></include>
+        FROM article_category
+        WHERE c_id=#{cId} and isDeleted = 0
+    </select>
+    
+    <insert id="addNewContact" parameterType="Map">
+        INSERT INTO article_category SET
+        a_id=#{aId}, c_id = #{cId}
+    </insert>
+    
+    <update id="deletedContact" parameterType="Map">
+        UPDATE article_category
+        SET isDeleted = 1
+        WHERE a_id=#{aId} AND c_id=#{cId}
+    </update>
+
+    <update id="recoverContact" parameterType="Map">
+        UPDATE article_category
+        SET isDeleted = 0
+        WHERE a_id=#{aId} AND c_id=#{cId}
+    </update>
+
+</mapper>

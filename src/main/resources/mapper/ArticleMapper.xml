@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.blog.dao.ArticleMapper">
+    <resultMap id="ArticleMap" type="com.example.blog.entity.Article">
+        <id column="article_id" property="articleId"/>
+        <result column="article_title" property="articleTitle"/>
+        <result column="article_content" property="articleContent"/>
+        <result column="isDeleted" property="isDeleted"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        article_id, article_title, article_content, isDeleted
+    </sql>
+    
+    <select id="getAllArticles" resultMap="ArticleMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM article
+        WHERE isDeleted = 0
+    </select>
+
+    <select id="getArticleById" resultMap="ArticleMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM article
+        WHERE isDeleted = 0 AND article_id=#{articleId}
+    </select>
+
+    <select id="getAllDeletedArticles" resultMap="ArticleMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM article
+        WHERE isDeleted = 1
+    </select>
+
+    <select id="getTheLastArticle" resultMap="ArticleMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM article
+        WHERE isDeleted = 0
+        ORDER BY article_id DESC
+    </select>
+    
+    <insert id="addArticle" parameterType="Article">
+        INSERT INTO article SET
+        article_title=#{articleTitle}, article_content=#{articleContent}
+    </insert>
+    
+    <update id="updateArticle" parameterType="Article">
+        UPDATE article
+        SET article_title=#{articleTitle}, article_content=#{articleContent}
+        WHERE article_id=#{articleId}
+    </update>
+
+    <update id="deleteArticle" parameterType="int">
+        UPDATE article
+        SET isDeleted = 1
+        WHERE article_id=#{articleId}
+    </update>
+
+    <update id="recoverArticle" parameterType="int">
+        UPDATE article
+        SET isDeleted = 0
+        WHERE article_id=#{articleId}
+    </update>
+
+
+
+</mapper>
