@@ -7,13 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/25 10:22
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

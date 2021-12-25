@@ -6,13 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/24 15:57
- */
 @Mapper
 @Repository
 public interface CategoryMapper {

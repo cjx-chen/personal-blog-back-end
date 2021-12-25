@@ -2,13 +2,6 @@ package com.example.blog.util;
 
 import org.springframework.util.StringUtils;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/18 20:00
- */
 public class ResultGenerator {
     private static final String DEFAULT_SUCCESS_MESSAGE = "SUCCESS";
     private static final String DEFAULT_FAIL_MESSAGE = "FAIL";

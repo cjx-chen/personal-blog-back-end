@@ -9,10 +9,7 @@ import com.example.blog.util.ResultGenerator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,5 +50,13 @@ public class ArticleApi {
             articles.add(article);
         }
         return ResultGenerator.genSuccessResult(articles);
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/getArticle/{articleId}", method = RequestMethod.GET)
+    @ApiOperation("获取文章详情")
+    public Result selectWorksById(@PathVariable("articleId") @RequestBody Integer worksId) {
+        Article article = articleService.getArticleById(worksId);
+        return ResultGenerator.genSuccessResult(article);
     }
 }

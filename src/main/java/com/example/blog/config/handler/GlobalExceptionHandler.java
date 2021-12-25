@@ -6,13 +6,6 @@ import com.example.blog.util.ResultGenerator;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/18 19:58
- */
 //定义一个全局处理异常类
 @RestControllerAdvice
 public class GlobalExceptionHandler {

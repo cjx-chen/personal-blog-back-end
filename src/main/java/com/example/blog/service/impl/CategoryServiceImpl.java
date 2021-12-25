@@ -10,13 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/24 16:21
- */
 @Service
 public class CategoryServiceImpl implements CategoryService {
     @Autowired

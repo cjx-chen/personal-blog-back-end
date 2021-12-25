@@ -1,10 +1,8 @@
 package com.example.blog.service.impl;
 
-import com.example.blog.api.admin.DTO.ContactDTO;
 import com.example.blog.dao.ArticleCategoryMapper;
 import com.example.blog.dao.ArticleMapper;
 import com.example.blog.dao.CategoryMapper;
-import com.example.blog.entity.Article;
 import com.example.blog.entity.ArticleCategory;
 import com.example.blog.service.ArticleCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/25 9:34
- */
 @Service
 public class ArticleCategoryServiceImpl implements ArticleCategoryService {
     @Autowired

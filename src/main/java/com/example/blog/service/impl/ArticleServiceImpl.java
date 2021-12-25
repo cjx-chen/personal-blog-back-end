@@ -8,13 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/18 20:48
- */
 @Service
 public class ArticleServiceImpl implements ArticleService {
     @Autowired

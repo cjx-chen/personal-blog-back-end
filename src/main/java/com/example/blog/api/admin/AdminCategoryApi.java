@@ -1,6 +1,5 @@
 package com.example.blog.api.admin;
 
-import com.example.blog.entity.Article;
 import com.example.blog.entity.Category;
 import com.example.blog.service.CategoryService;
 import com.example.blog.util.Result;
@@ -12,13 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/25 9:45
- */
 @RestController
 @Api(value = "v1", tags = "2-2 管理端分类接口")
 @RequestMapping("manage-api/v1")

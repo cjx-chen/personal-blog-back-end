@@ -13,13 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/25 10:17
- */
 @RestController
 @Api(value = "v1", tags = "2-1 管理端映射接口")
 @RequestMapping("manage-api/v1")

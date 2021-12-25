@@ -6,13 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/18 20:16
- */
 @Mapper
 @Repository
 public interface ArticleMapper {

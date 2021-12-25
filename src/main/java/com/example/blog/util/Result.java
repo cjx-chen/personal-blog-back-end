@@ -4,13 +4,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/18 19:59
- */
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
