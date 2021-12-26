@@ -25,5 +25,4 @@ public interface ArticleMapper {
 
     int recoverArticle(int articleId);
 
-
 }

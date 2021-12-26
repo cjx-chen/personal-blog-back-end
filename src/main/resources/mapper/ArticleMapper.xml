@@ -24,7 +24,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM article
-        WHERE isDeleted = 0 AND article_id=#{articleId}
+        WHERE article_id=#{articleId}
     </select>
 
     <select id="getAllDeletedArticles" resultMap="ArticleMap">

@@ -44,7 +44,7 @@ public class AdminCategoryApi {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/changeCategory", method = RequestMethod.PUT)
+    @RequestMapping(value = "/changeCategory", method = RequestMethod.POST)
     @ApiOperation("修改分类")
     public Result updateCategory(@RequestHeader("application/json") @RequestBody Category category){
         try {
@@ -61,7 +61,7 @@ public class AdminCategoryApi {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/deleteCategory", method = RequestMethod.PUT)
+    @RequestMapping(value = "/deleteCategory", method = RequestMethod.POST)
     @ApiOperation("删除分类")
     public Result deleteCategory(int categoryId){
         try {
@@ -77,4 +77,13 @@ public class AdminCategoryApi {
             return ResultGenerator.genFailResult("删除分类失败");
         }
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/getCategoryById/{categoryId}", method = RequestMethod.GET)
+    @ApiOperation("获取分类详情")
+    public Result selectWorksById(@PathVariable("categoryId") @RequestBody Integer categoryId) {
+        Category category = categoryService.getCategoryById(categoryId);
+        return ResultGenerator.genSuccessResult(category);
+    }
+
 }

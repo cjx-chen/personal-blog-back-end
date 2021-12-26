@@ -12,6 +12,7 @@ import java.util.List;
 public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private ArticleMapper articleMapper;
+
     @Override
     public List<Article> getAllArticles() {
         return articleMapper.getAllArticles();

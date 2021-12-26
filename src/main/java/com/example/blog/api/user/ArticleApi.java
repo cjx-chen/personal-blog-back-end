@@ -14,13 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/18 20:51
- */
 @RestController
 @Api(value = "v1", tags = "1-1 文章接口")
 @RequestMapping("api/v1")

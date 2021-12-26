@@ -69,12 +69,12 @@ public class AdminArticleApi {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/changeArticle", method = RequestMethod.PUT)
+    @RequestMapping(value = "/changeArticle", method = RequestMethod.POST)
     @ApiOperation("修改一篇文章")
     public Result updateArticle(@RequestHeader("application/json") @RequestBody Article article){
         try {
             articleService.updateArticle(article);
-            System.out.println(articleService.updateArticle(article)+"卡卡");
+            System.out.println(articleService.updateArticle(article));
             return ResultGenerator.genSuccessResult(article);
         }catch (Exception e){
             e.printStackTrace();
@@ -83,7 +83,7 @@ public class AdminArticleApi {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/deleteArticle", method = RequestMethod.PUT)
+    @RequestMapping(value = "/deleteArticle", method = RequestMethod.POST)
     @ApiOperation("删除文章")
     public Result deleteArticle(int articleId){
         try {
@@ -95,10 +95,8 @@ public class AdminArticleApi {
         }
     }
 
-
-
     @CrossOrigin
-    @RequestMapping(value = "/recoverArticle", method = RequestMethod.PUT)
+    @RequestMapping(value = "/recoverArticle", method = RequestMethod.POST)
     @ApiOperation("恢复文章")
     public Result recoverArticle(int articleId){
         try {
@@ -110,4 +108,11 @@ public class AdminArticleApi {
         }
     }
 
+    @CrossOrigin
+    @RequestMapping(value = "/getArticle/{articleId}", method = RequestMethod.GET)
+    @ApiOperation("获取文章详情")
+    public Result selectWorksById(@PathVariable("articleId") @RequestBody Integer articleId) {
+        Article article = articleService.getArticleById(articleId);
+        return ResultGenerator.genSuccessResult(article);
+    }
 }

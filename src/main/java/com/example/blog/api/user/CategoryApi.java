@@ -1,6 +1,5 @@
 package com.example.blog.api.user;
 
-import com.example.blog.entity.Article;
 import com.example.blog.entity.ArticleCategory;
 import com.example.blog.entity.Category;
 import com.example.blog.service.ArticleCategoryService;
@@ -18,13 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Description：
- * Param：
- * return：
- * Author：陈冰
- * Date：2021/12/25 9:44
- */
 @RestController
 @Api(value = "v1", tags = "1-2 分类接口")
 @RequestMapping("api/v1")
