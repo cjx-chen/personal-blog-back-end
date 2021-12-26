@@ -1,6 +1,7 @@
 package com.example.blog.api.admin;
 
 import com.example.blog.api.admin.DTO.ContactDTO;
+import com.example.blog.entity.Article;
 import com.example.blog.entity.ArticleCategory;
 import com.example.blog.service.ArticleCategoryService;
 import com.example.blog.util.Result;
